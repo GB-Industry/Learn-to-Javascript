@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Type</title>
+    <style>
+        #code{
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <p id="code" >1. var num = 1;</p>
+    <p><button style="width: 200px; height: 100px; font-size: 25px;" onclick="window.alert(num + '은 '+ typeof(num)+ ' 입니다.')">number</button></p>
+    <p id="code">2. var name = "Kimgyubin";</p>
+    <p><button style="width: 200px; height: 100px; font-size: 25px;" onclick="window.alert(Name + '은 '+ typeof(Name)+ ' 입니다.')">string</button></p>
+    <p id="code">3. var bool = true;</p>
+    <p><button style="width: 200px; height: 100px; font-size: 25px;" onclick="window.alert(bool + '는 '+ typeof(bool)+ ' 입니다.')">boolean</button></p>
+    <p id="code">4. var sym = Symbol("javascript");<br />(F12를 눌러 콘솔창을 확인하세요.)</p>
+    <p><button style="width: 200px; height: 100px; font-size: 25px;" onclick="console.log(sym, typeof(sym))">symbol</button></p>
+    <p id="code">5. var undef;</p>
+    <p><button style="width: 200px; height: 100px; font-size: 25px;" onclick="window.alert(undef + '은 '+ typeof(undef)+ ' 입니다.')">undefined</button></p>
+    <p id="code">6. var KimGyubin = { <br />
+        age : "22",<br />
+        hobby : "programing",<br />
+    } </p>
+    <p><button style="width: 200px; height: 100px; font-size: 25px;" onclick="window.alert(KimGyubin + '은 '+ typeof(KimGyubin)+ ' 입니다.')">object</button></p>
+    <script>
+        // 기본타입
+        /* 타입(data type)이란 프로그램에서 다룰 수 있는 값의 종류를 의미함
+        JS에서는 여러가지 형태의 타입을 미리 정의하고 제공하는데, 이것을 기본타입이라고 함
+        JS의 기본 타입은 크게 "원시타입"과 "객체타입"으로 나눔*/
+        
+        // 원시타// 1.숫자(number)
+        /*Js에선 정수와 실수를 구분X 모든수를 실수로만 표현
+        매우 큰 수나 매우작은수를 표현할 경우 e표기법 사용가능*/
+        var num = 1;
+        // 2.문자열(string)
+        /*JS에서 문자열은 큰따옴표("")나 작은따옴표('')로 둘러싸인 문자의 집합임
+        큰따옴표는 큰따옴표끼리, 작은따옴표는 작은따옴표끼리만 포함가능*/
+        var Name = 'Kimgyubin';
+        // 3.불리언(boolean)
+        /*참(true)과 거짓(false)을 표현할 때 쓰는 타입형*/
+        var bool = true;
+        // 4.심볼(symbol): ECMAScript 6 부터 제공
+        /*심볼타입은 유일하고 변경할 수 없으며 
+        객체의 프로퍼티를 위한 식별자로 사용가능*/
+        var sym = Symbol();
+        // 5.undefined
+        /*null이란 object타입이고, 아직 '값'이 정해지지 않았다.
+        반면 undefined란 null과는 달리 '타입'이 정해지지 않은 것을 
+        의미한다. JS에서 undefined란 초기화되지 않은 변수나
+        존재하지 않는 값에 접근할 때 반환됨.*/
+        var undef;
+
+        //※typeof 연산자
+        /*피연산자의 타입을 반환*/
+        typeof 10; //number
+        typeof "KGB" //string
+        typeof true; //boolean
+
+        //객체타입(object type)
+        // 6.객체(object)
+        /*JS의 기본타입은 객체(object)이다.
+        객체란 여러 프로퍼티(property)와 메소드(method)들을 
+        같은 이름으로 묶어 놓은 것이다.*/
+        var KimGyubin = {
+            age : "22",
+            hobby : "programing",
+        }
+        console.log(KimGyubin.age, KimGyubin.hobby);
+    </script>
+</body>
+</html>

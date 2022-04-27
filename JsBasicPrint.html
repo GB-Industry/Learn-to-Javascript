@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JsBasicPrint</title>
+</head>
+<body>
+    <p><button style="width: 200px; height: 100px; font-size: 25px; background-color:#fbbd06;" 
+        onclick="window.alert('확인을 누를 때까지 아무것도 할 수 없습니다.')">window.alert()</button></p>
+    <p><button style="width: 200px; height: 100px; font-size: 25px; background-color:#fbbd06;"
+        onclick = "usingDOM()">
+        Using DOM,<br /> innerHTML property</button></p>
+    <p id = "DOM">Hello World!</p>
+    <p><button style="width: 200px; height: 100px; font-size: 25px; background-color:#fbbd06;" onclick="usingDocwrite()">documet.write()</button></p>
+    <p><button style="width: 200px; height: 100px; font-size: 25px; background-color:#fbbd06;" onclick="usingConsolelog()">console.log()</button></p>
+    <script>
+        //JS는 여러방법으로 화면에 출력할 수 있습니다.
+        //window.alert()메소드
+        //HTML DOM 요소를 이용한 innerHTML 프로퍼티
+        //document.write()메소드
+        //console.lot()메소드
+        
+        // 1.window.alert()메소드
+        /*이 메소드는 브라우저와는 별도의 대화상자를 띄워 
+        사용자에게 데이터를 전달함*/
+
+        // 2.HTML DOM 요소를 이용한 innerHTML 프로퍼티
+        /*document 객체의 getElementByID() 또는 getElementsByTagName() 로 
+        HTML요소 선택, 그 후 innerHTML을 활용하여 요소의 내용이나 속성을 변경*/
+        function usingDOM(){
+            var str = document.getElementById("DOM")
+            str.innerHTML = "Changing this sentence"
+        }
+        
+        // 3. document.write 메소드
+        /*document.write()메소드는 웹페이지가 로드될 때 실행되면,
+        웹 페이지에 가장 먼저 데이터를 출력. 
+        주로 테스트나 디버깅을 위해 사용*/
+        function usingDocwrite(){
+            window.alert("확인을 누를 시 모든 화면이 지워지고 document.write()가 실행됩니다. 진행하시겠습니까? 다시 화면을 돌리려면 새로고침(F5) 하세요.");
+            document.write("Hellow world!");
+        }
+
+        // 4. console.log() 메소드
+        /*console.log()메소드는 웹브라우저의 콘솔을 통해 데이터를 출력함
+        구글개발자도구(F12)를 누르고 콘솔 창을 열면 사용할 수 있음
+        콘솔 화면을 통한 데이터출력은 더 세세한 부분까지 확인가능하므로
+        디버깅시 많은 도움을 줌*/
+        function usingConsolelog(){
+            window.alert("F12를 누르고 콘솔창을 열어보세요.");
+            console.log("Hello World");
+        }
+    </script>
+</body>
+</html>

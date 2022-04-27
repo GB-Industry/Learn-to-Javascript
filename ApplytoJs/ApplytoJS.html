@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "./ApplytoJs.js"></script>
+</head>
+<body>
+    <p><button style="width: 200px; height: 100px; font-size: 25px; background-color:#fbbd06;" 
+    onclick="innerDate()">
+    Code written inside</button></p>
+    <p id="date1"></p>
+    <p><button style="width: 200px; height: 100px; font-size: 25px; background-color:#fbbd06;"
+    onclick = "outerDate()">
+    Code written outside</button></p>
+    <p id="date2"></p>
+    <script>
+        //내부 자바스크립트 코드
+        /*자바스크립트 코드는 위와같이 <script>태그를 사용하여
+        문서 안에 삽입할 수 있다. 이렇게 삽입된 코드는 문서의 <head>태그나
+        <body>태그, 또는 양쪽 모두에 위치 할 수 있음*/
+        function innerDate(){
+            window.alert("내부에 작성된 코드가 실행되었습니다.");
+            document.getElementById("date1").innerHTML = Date();
+        }
+        /*외부 JS파일을 사용하면 HTML코드로부터 자바스크립트 코드를 분리할 수 있다
+        이렇게 하면 유지보수도 쉽고 읽기도 쉽다 또 웹페이지의 로딩속도도 빨라진다.*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iteration statements</title>
+</head>
+<body>
+    <h1>
+        <div>
+            <p><button style="width:100px; height:80px;" onclick="whileex()">while</button></p>
+            <p><button style="width:100px; height:80px;" onclick="dowhileex()">do/while</button></p>
+            <p><button style="width:100px; height:80px;" onclick="forex()">for</button></p>
+            <p><button style="width:100px; height:80px;" onclick="forinex()">for/in</button></p>
+            <p><button style="width:100px; height:80px;" onclick="forofex()">for/of</button></p>
+        </div>
+    </h1>
+    <script>
+        //반복문(iteration statements)
+        /*반복문은 프로그램내에서 똑같은 명령을 일정 횟수만큼 반복하여
+        수행하도록 제어하는 실행문이다. 프로그램이 처리하는 대부분의 코드는
+        반복적인 형태가 많으므로, 가장 많이 사용되는 실행문이다.*/
+        //실행문의 종류
+        // 1.while문
+        function whileex(){
+            var a = 0;
+            document.write("--Using while--<br /><br />");
+            while(a<5){
+                document.write("Hello world! <br />");
+                a++;
+            }
+        }
+        // 2.do/while문
+        function dowhileex(){
+            var a = 0;
+            document.write("--Using do/while--<br /><br />");
+            do(
+                document.write("Hello world!<br />"),
+                a++
+            )
+            while(a<10);
+        }
+        // 3.for문
+        function forex(){
+            var i = 0;
+            document.write("--Using for--<br /><br />");
+            for(i=0;i<8;i++){
+                document.write("Hello world!<br />");
+            }
+        }
+        // 4.for/in문
+        function forinex(){
+            var arr = [10,20,30,40,50];
+            document.write("--Using for/in--<br /><br />");
+            for(var i in arr){
+                document.write(arr[i]+" ");
+            }
+        }
+        // 5.for/of문
+        function forofex(){
+            var arr = ["H","E","L","L","O","W","O","R","L","D"];
+            document.write("--Using for/of--<br /><br />");
+            for(var val of arr){
+                document.write(val+" ");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Conversion</title>
+    <style>
+        #grid{
+            display: grid;
+            grid-template-columns: 300px 400px 400px 400px 400px 300px;
+        }
+        .answer{
+            font-size: 25px;
+        }
+        #head1{
+            border: 4px solid black;
+            width: 250px;
+            text-align: center;
+        }
+        #head2{
+            border: 4px solid black;
+            width: 320px;
+            text-align: center;
+        }
+        #head3{
+            border: 4px solid black;
+            width: 250px;
+            text-align: center;
+        }
+        #head4{
+            border: 4px solid black;
+            width: 280px;
+            text-align: center;
+        }
+        #head5{
+            border: 4px solid black;
+            width: 280px;
+            text-align: center;
+        }
+        #head6{
+            border: 4px solid black;
+            width: 280px;
+            text-align: center;
+        }
+        #implict{
+            width: 250px;
+            border-right: 4px solid black;
+        }
+        #numbertostring{
+            width: 320px;
+            border-right: 4px solid black;
+        }
+        #booltostring{
+            width: 320px;
+            border-right: 4px solid black;
+        }
+        #dateexam{
+            width: 320px;
+            border-right: 4px solid black;
+        }
+        #parseexam{
+            width: 320px;
+            border-right: 4px solid black;
+        }
+        #booltonum{
+            width: 320px;
+            border-right: 4px solid black;
+        }
+        #today{
+            width: 150px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id = "grid">
+        <div>
+            <div id="head1">묵시적 타입 변환</div>
+            <div id="implict">
+                <p><button style="width: 200px; height: 100px; font-size: 25px;" onclick="numstring()">10 + "Messi"</button></p>
+                <p id="numstring" class = "answer"></p>
+                <p><button style="width: 200px; height: 100px; font-size: 25px;" onclick="stringtonum()">"3" * "5"</button></p>
+                <p id="stringtonum" class   = "answer"></p>
+                <p><button style="width: 200px; height: 100px; font-size: 25px;" onclick="nanex()">1 - "one"</button></p>
+                <p id="nanex" class = "answer"></p>
+            </div>
+        </div>
+        <div>
+            <div id="head2">숫자를 문자열로 변환</div>
+            <div id="numbertostring">
+                <p><button style="width: 250px; height: 100px; font-size: 25px;" onclick="toex()">toExponential()</button></p>
+                <p id="toex">77.1234</p>
+                <p><button style="width: 250px; height: 100px; font-size: 25px;" onclick="toFix()">toFixed()</button></p>
+                <p id="tofix">12345.6789</p>
+                <p><button style="width: 250px; height: 100px; font-size: 25px;" onclick="toprec()">toPrecision(3)</button></p>
+                <p id="toprec">5.123456</p>
+            </div>
+        </div>
+        <div>
+            <div id="head3">불리언 값을<br /> 문자열로 변환</div>
+            <div id="booltostring">
+                <p><button style="width: 250px; height: 100px; font-size: 25px;" onclick="booltostring()">String(true)</button></p>
+                <p id="bool"></p>
+            </div>
+        </div>
+        <div>
+            <div id="head4">날씨를 문자열이나 <br />숫자로 변환</div>
+            <div id="dateexam">
+                <p><button id="today" onclick="today()">TODAY!</button></p>
+                <p><button onclick="getdate()">getDate()</button><span id="d_1" style="margin-left: 30px;"></span></p>
+                <p><button onclick="getday()">getDay()</button><span id="d_2" style="margin-left: 30px;"></span></p>
+                <p><button onclick="getfullyear()">getFullYear()</button><span id="d_3" style="margin-left: 30px;"></span></p>
+                <p><button onclick="getmonth()">getMonth()</button><span id="d_4" style="margin-left: 30px;"></span></p>
+                <p><button onclick="gettime()">getTime()</button><span id="d_5" style="margin-left: 30px;"></span></p>
+                <p><button onclick="gethours()">getHours()</button><span id="d_6" style="margin-left: 30px;"></span></p>
+                <p><button onclick="getminutes()">getMinutes()</button><span id="d_7" style="margin-left: 30px;"></span></p>
+                <p><button onclick="getseconds()">getSeconds()</button><span id="d_8" style="margin-left: 30px;"></span></p>
+                <p><button onclick="getmilliseconds()">getMilliseconds()</button><span id="d_9" style="margin-left: 30px;"></span></p>
+            </div>
+        </div>
+        <div>
+            <div id="head5">문자열을 숫자로 변환</div>
+            <div id="parseexam">
+                <p><button style="width: 250px; height: 100px; font-size: 25px;" onclick="parseint()">parseInt()<br />문자열10을 2진법으로 변환</button></p>
+                <p id="parseint"></p>
+                <p><button style="width: 250px; height: 100px; font-size: 25px;" onclick="parsefloat()">parseFloat()<br />문자열3.14를 실수로 변환</button></p>
+                <p id="parsefloat"></p>
+            </div>
+        </div>
+        <div>
+            <div id="head6">불리언 값을 숫자로 변환</div>
+            <div id="booltonum">
+                <p><button style="width: 250px; height: 100px; font-size: 25px;" onclick="booltrue()">Number(true)</button></p>
+                <p id="t">true</p>
+                <p><button style="width: 250px; height: 100px; font-size: 25px;"onclick="boolfalse()">Number(false)</button></p>
+                <p id="f">false</p>
+            </div>
+        </div>
+    </h1>
+    
+    <script>
+        //타입변환(type Conversion)
+        /*JS는 타입검사가 매우 유연한 언어이다.
+        JS의 변수는 타입이 정해져 있지 않으며, 같은변수에 다른타입의 값을
+        다시 대입할 수도 있다.*/
+        var num = 20;
+        num = "이십"
+        console.log(num); //이십
+
+        //묵시적 타입 변환(implict type conversion)
+        /*JS는 자동으로 타입을 변환할 수도 있다.
+        문자열값이 오길 기대하는 곳에 숫자가온다면, 
+        JS는 알아서 숫자를 문자열로 변환하여 사용한다.*/
+        console.log(10 + "Messi"); //10이 문자열로 변경되어 10messi
+        console.log("3"*"5"); //문자열로 받은 3과 5지만 숫자로 변경되어 15
+        console.log(1-"one"); //뒤의 문자열을 숫자로 바꿔야하지만 바꿀 수 없으므로 NaN(Not a Number)
+    
+        function numstring(){
+            document.getElementById("numstring").innerHTML = 10+"Messi";
+        }
+        function stringtonum(){
+            document.getElementById("stringtonum").innerHTML = "3" * "5";
+        }
+        function nanex(){
+            document.getElementById("nanex").innerHTML = 1 - "one";
+        }
+
+        //명시적 타입변환 (explicit type conversion)
+        /*JS에선 묵시적 타입 변환을 자주 사용하지만, 
+        개발자가 의도적으로 타입을 변환시켜야 할 땐 
+        명시적 타입변환을 사용한다.*/
+        //명시적 타입변환을위한 전역함수
+        //Number() 숫자로 변경
+        //String() 문자열로 변경
+        //Boolean() 불값으로 변경
+        //Object() 객체로 변경
+        //parselnt()
+        //parseFloat()
+
+        // 1.숫자를 문자열로 변환
+        /*가장 간단한 방법으로는 String() 함수를 사용하는것이다.
+        또한 null과 undefined를 제외한 모든 타입의 값이 toString() 메소드를
+        사용할 수도 있다. */
+        //제공되는 메소드
+        //toExponential()
+        function toex(){
+            var num = 77.1234;
+            document.getElementById("toex").innerHTML = num.toExponential(4);
+        }
+        //toFixed()
+        function toFix(){
+            var num = 12345.6789;
+            document.getElementById("tofix").innerHTML = num.toFixed();
+        }
+        //toPrecision()
+        function toprec(){
+            var num = 5.123456;
+            document.getElementById("toprec").innerHTML = num.toPrecision(3);
+        }
+
+        
+        // 2.불리언값을 문자열로 변환
+        /*String()함수와 toString()메소드를 사용한다.*/
+        function booltostring(){
+            document.getElementById("bool").innerHTML = String(true);
+        }
+
+        // 3.날짜를 문자열이나 숫자로 변환
+        /*Date객체는 문자열 또는 숫자로 변환할 수 있는 유일한 타입이다.
+        Date 객체에서 제공되는 메소드들*/
+        const todayInfo = new Date();
+        function today(){
+            document.getElementById("today").innerHTML = Date();
+        }
+        // getDate()
+        function getdate(){
+            document.getElementById("d_1").innerHTML = todayInfo.getDate();
+        }
+        // getDay()
+        function getday(){
+            document.getElementById("d_2").innerHTML = todayInfo.getDay();
+        }
+        // getFullYear()
+        function getfullyear(){
+            document.getElementById("d_3").innerHTML = todayInfo.getFullYear();
+        }
+        // getMonth()
+        function getmonth(){
+            document.getElementById("d_4").innerHTML = todayInfo.getMonth();
+        }
+        // getTime()
+        function gettime(){
+            document.getElementById("d_5").innerHTML = todayInfo.getTime();
+        }
+        // getHours()
+        function gethours(){
+            document.getElementById("d_6").innerHTML = todayInfo.getHours();
+        }
+        // getMinutes()
+        function getminutes(){
+            document.getElementById("d_7").innerHTML = todayInfo.getMinutes();
+        }
+        // getSeconds()
+        function getseconds(){
+            document.getElementById("d_8").innerHTML = todayInfo.getSeconds();
+        }
+        // getMilliseconds()
+        function getmilliseconds(){
+            document.getElementById("d_9").innerHTML = todayInfo.getMilliseconds();
+        }
+
+
+        // 4.문자열을 숫자로 변환
+        /*가장 간단한 방법은 Number()함수를 사용하는것이다.
+        문자열을 숫자로 변환해주는 두 개의 전역함수*/
+        //parseInt()
+        function parseint(){
+            document.getElementById("parseint").innerHTML = parseInt("10",2);
+        }
+        //parseFloat()
+        function parsefloat(){
+            document.getElementById("parsefloat").innerHTML = parseFloat('3.14');
+        }
+
+        // 5.불리언값을 숫자로 변환
+        /*Number()함수를 사용한다*/
+        function booltrue(){
+            document.getElementById("t").innerHTML = Number(true);
+        }
+        function boolfalse(){
+            document.getElementById("f").innerHTML = Number(false);
+        }
+    </script>
+</body>
+</html>
