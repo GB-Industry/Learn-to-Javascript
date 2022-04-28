@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Function</title>
+</head>
+<body>
+    <h1>
+        <p><button style="width: 100px;height: 80px;" onclick="example()">EXAMPLE</button><span style="font-size: 15px; margin-left: 10px;" id="exfun"></span></p>
+    </h1>
+    <script>
+        //함수(function)란?
+        /*함수란 하나의 특별한 목적의 작업을 수행하도록 설계된 독립적인 블록이다.
+        함수는 필요할 때마다 호출하여 해당 작업을 반복해서 수행할 수 있다.*/
+        //기본적인 더하기함수
+        function example(){
+            var a = Number(window.prompt("첫번째 숫자 입력"));
+            var b = Number(window.prompt("두번째 숫자 입력"));
+            document.getElementById("exfun").innerHTML = "입력된 두 숫자의 합은 " + (a + b);  
+        }
+
+        //JS에서는 함수도 하나의 타입(datatype)이다.
+        //따라서 함수를 변수에 대입하거나, 함수에 프로퍼티를 지정하는 것도 가능하다.
+        //또한, JS함수는 다른 함수 내에 중첩되어 정의될 수도 있다.
+    
+        //함수의 정의
+        //JS에서 함수의 정의는 function 키워드로 시작되며 다음과 같은 구성요소를 가진다.
+        // 1.함수의 이름
+        // 2.괄호 안에 쉼표(,)로 구성되는 함수의 매개변수(parameter)
+        // 3.중괄호 ({})로 둘러싸인 자바스크립트 실행문
+        /* function 함수이름(매개변수1, 매개변수2, ...){
+            함수의 실행문
+        }*/
+        
+        /*함수 이름(function name)은 함수를 구분하는 식별자(identifier)이고
+        매개변수(parameter)란 함수를 호출할 때 인수(argument)로 전달된 값을 
+        함수 내부에서 사용할 수 있게 해주는 변수이다.*/
+
+        //반환(return)문
+        /*JS에서 함수는 반환문을 포함할 수 있다.
+        이러한 반환문을 통해 호출자는 함수에서 실행된 결과를 전달받는다
+        반환문은 함수의 호출을 '중단'하고 return 키워드 다음에 명시된 표현식의 값을
+        호출자에게 반환한다. 반환문은 배열이나 객체를 포함한 모든 타입의 값을
+        반환할 수 있다.*/
+        function mulNum(x,y){ //매개변수로 x와 y가 들어옴
+            return x*y; //x와 y의 곱을 반환함
+        }
+        var resNum = mulNum(5,25); //함수호출 후 매개변수 전달
+        console.log(resNum);
+        
+
+        //값으로서의 함수
+        /*JS에서 함수는 문법적 구문일 뿐만아니라 값(value)이기도 하다.
+        따라서 함수가 변수에 대입될 수도 있고, 다른함수의 인수로 전달될 수 있다.*/
+        function sqr(x){
+            return x*x;
+        }
+        var sqrNum1 = sqr(17);
+        var sqrNum2 = sqr; //함수를 대입
+        console.log(sqrNum1); //변수를 지정하여 대입 후 출력
+        console.log(sqrNum2(18));
+        console.log(sqr(19));
+    </script>
+</body>
+</html>
