@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predefined Functions</title>
+</head>
+<body>
+    <script>
+        /*JS는 사용자의 편의를 위해 다양한 기능의 여러 전역함수를 미리 정의해 제공한다.
+        이러한 전역함수는 JS의 어떤 타입의 객체에서도 바로 사용할 수 있습니다.*/
+    
+        //미리 정의되어있는 전역 함수의 종류
+        // 1.eval()
+        var x = 10, y = 20;
+        console.log("eval('x + y') 실행 결과: " + eval('x + y'));//문자열로 표현된 코드를 실행
+        // 2.isFinite()
+        console.log("isFinite('123') 실행 결과1: "+isFinite("123"));//전달된 값이 유한한 수인지 검사, 인수가 숫자가 아니라면, 숫자로 변환하여 검사진행
+        console.log("isFinite(undefined) 실행 결과2: "+isFinite(undefined));
+        // 3.isNaN()
+        console.log("isNaN(Nan) 실행 결과: "+isNaN(NaN));//전달된 값이 NaN인지 검사하여 결과를 반환
+        // 4.parseFloat()
+        console.log("parseFloat('123KGB') 실행 결과: "+parseFloat("123KGB")); //문자열을 파싱하여 부동 소수점 수로 반환
+        // 5.parseInt()
+        console.log("parseInt(123.456) 실행 결과: "+parseInt("123.456")); //문자열을 파싱하여 정수로 반환
+        // 6.decodeURI() & decodeURIComponent()
+        /* 위함수는 URI 또는 URI 컴포넌트를 해독하는 함수이다.*/
+        
+        // 7.encodeURI() & encodeURIComponent()
+        /* 위함수는 URI에서 주소를 표시하는 특수문자를 제외하고 
+        모든 문자를 이스케이프 시퀀스 처리하여 부호화한다. 컴포넌트가 붙은 함수는
+        부호화하지 않은 모든 문자까지 포함하여 이스케이프 시퀀스처리한다.
+        */
+        
+        // 8.escape() & unescape()
+        /*전달받은 문자열에서 특정 문자들을 16진법 이스케이프 시퀀스 문자로 변환
+        un이 붙으면 변환된 문자를 원래의 문자로 다시변환*/
+        console.log("escape('Hello! World ?#$') 실행 결과: "+escape('Hello! World ?#$'));
+        console.log("unescape('Hello! World ?#$') 실행 결과: "+unescape('Hello! World ?#$'));
+        
+        // 9.Number()
+        console.log("typeof Number('123.456') 실행 결과: "+typeof Number('123.456')); //전달받은 객체를 숫자로 반환
+        // 10.String()
+        console.log("typeof String(123.456) 실행 결과: "+typeof String(123.456)); //전달받은 객체를 문자열로 반환
+    </script>
+</body>
+</html>
