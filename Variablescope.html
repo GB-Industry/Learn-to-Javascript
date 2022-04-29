@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable scope</title>
+</head>
+<body>
+    <h1>
+        <p>개발자 도구를 켜세요.</p>
+    </h1>
+    <script>
+        //변수의 유효범위 (variable scope)
+        /*JS에서 객체나 함수는 모두 변수(variable)입니다.
+        변수의 유효 범위(scope)란 해당 변수가 접근할 수 있는 변수, 객체, 함수의 집합을 의미함
+        JS에서의 변수는 유효범위에 따라 다음과 같이 구분됨
+        */
+        // 1.지역변수(local variable)
+        function localNum(){
+            var num = 10;
+            console.log("함수 내부에서 변수 num의 타입은 " + typeof num + " 입니다.");
+        }
+        localNum();
+        console.log("함수호출이 끝난 후 변수 num의 타입은" + typeof num + " 입니다.");
+        //위 상황은 함수내부에서 선언된 지역변수가 함수 외부에서 정의되지 않은 타입이 되었다.
+        //이는 지역에서 사용된 변수가 전역에서 유효하지 않는다는 것을 의미한다.
+        
+        
+        // 2.전역변수(global variable)
+        var num = 10;
+        function globalNum(){
+            console.log("함수 내부에서 변수 num의 값은 "+num+" 입니다."); //10
+            num = 20; //함수 내부에서 값 변경
+        }
+        globalNum();
+        console.log("함수의 호출이 끝난 뒤 변수 num의 값은 "+num+" 입니다.") //20
+        
+        //JS에서 지역변수를 선언할 때 반드시 var 키워드를 사용하여 선언해야함
+        //함수 내부에서 var 키워드를 사용하지 않고 변수를 선언하면,
+        //해당 변수는 지역변수가아닌 "전역변수"로 선언됨.
+
+
+        //또한 전역변수와 같은 이름의 지역변수를 선언하면,
+        //해당 블록에서는 해당 이름으로 "지역변수만을" 호출할 수 있다.
+
+        //위와같은 경우, 해당 블록에서 전역변수를 타겟하고 싶으면
+        //전역변수가 window객체의 프로퍼티임을 명시하면 된다.
+        
+        var num = 10; // 전역 변수 num을 선언함.
+        function globalNum_2() {
+        var num = 20; // 같은 이름의 지역 변수 num을 선언함.
+        console.log("함수 내부에서 지역 변수 num의 값은 " + num + "입니다.");
+        console.log("함수 내부에서 전역 변수 num의 값은 " + window.num + "입니다.");
+        }
+        globalNum_2(); // 함수 globalNum()을 호출함.
+
+        var globalNum = 10;
+
+        function printNum() {
+            var globalNum; // 함수 호이스팅에 의해 변수의 선언 부분이 함수의 맨 처음 부분으로 이동됨.
+            document.write("지역 변수 globalNum 선언 전의 globalNum의 값은 " + globalNum + "입니다.<br>");
+            globalNum = 20;
+            document.write("지역 변수 globalNum 선언 후의 globalNum의 값은 " + globalNum + "입니다.<br>");
+        }  
+
+printNum();
+    </script>
+</body>
+</html>
