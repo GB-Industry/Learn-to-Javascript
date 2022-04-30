@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+    <style>
+        #grid{
+            display: grid;
+            grid-template-columns: 500px 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <p style="font-size: 25px; font-weight: 100;">
+            function Car(color, name, number){<br />
+                this.color = color;<br />
+                this.name = name;<br />
+                this.number = number;<br />
+            };<br />
+            var myFatherCar = new Car("흰색","로체","15어7776");
+        </p>
+        <div id="grid">
+            <div style="border-right: 4px solid gray;margin-right: 50px;">
+                <p><button style="width:100px; height:80px" onclick="introCar()">Introduce<br />Father's<br />Car</button></p>
+                <p id="car" style="font-size: 25px; font-weight: 100;"></p>
+            </div>
+            <div>
+                <p><button style="width:100px; height:80px" onclick="introSize()">Add property <br />and method</button></p>
+                <p id="prtadd" style="font-size: 25px; font-weight: 100;"></p>
+            </div>
+        </div>
+        
+    </h1>
+    <script>
+        //상속(inheritance)
+        /*상속이란 새로운 클래스에서 기존 클래스의 모든 프로퍼티와 메소드를
+        사용할 수 있는것을 의미한다.
+        
+        상속을 통해 새로운 프로그램의 요구에 맞게 기존 클래스를 수정하여 재사용한다.
+        또한 클래스간 종속관계를 형성하여 객체의 관계를 조직화할 수 있다.
+        따라서 상속은 추상화, 캡슐화와더불어 객체지향 프로그래밍을 구성하는
+        중요한  특징 중 하나이다.
+        
+        C# 또는 C++와같은 클래스 기반의 객체지향언어와 달리 
+        JS는 프로토타입 기반의 객체지향언어이다.
+        때문에 상속의 개념이 클래스기반 객체지향언어와 다르다.
+        JS에서는 현재 존재하고 있는 객체를 프로토타입으로 사용하여
+        해당 객체를 복제하여 재사용하는 것을 상속이라고 한다.
+        */
+
+        //프로토타입(prototype)
+        /*Js에서는 객체 이니셜라이저를 사용해 생성된 같은 타입의 객체들은
+        모두 같은 프로토타입을 가진다.
+        또한 new 연산자를 통해 생성한 객체는 생성자의 프로토타입을
+        자신의 프로토타입으로 상속받는다.
+        */
+        //ex
+        var obj = new Object(); //이 객체의 프로토타입(조상)은 Object.prototype이다.
+        var arr = new Array(); //이 객체의 프로토타입(조상)은 Array.prototype이다.
+        var date = new Date(); //이 객체의 프로토타입(조상)은 Date.prototype이다.
+        /* 하지만 Object.prototype 객체는 어떠한 프로토타입도 가지지 않으며(최초조상),
+        아무런 프로퍼티도 상속받지 않는다. 또한 JS에 내장된 모든 생성자나
+        사용자 정의 생성자는 바로 이 객체를 프로토타입으로 가진다.
+        */
+        //ex
+        var date_ = new Date(); //이 객체는 Date.prototype 뿐만아니라 Object.prototype도 프로토타입으로 가진다.
+        /*위와같은 프로토타입이 상속되는 가상의 연결고리를 프로토타입 체인 이라고 한다.
+        Object.prototype 객체는 이러한 프로토타입체인에서도 가장 상위에 존재하는 프로토타입이다.()
+        */
+
+        //프로토타입의 생성
+        /*프로토타입을 생성하는 가장 기본적인 방법은 먼저 객체생성자함수를 작성하고
+        new 연산자를 사용해 객체를 생성하면, 같은 프로토타입을 가지는 객체들을 생성할 수 있다.*/
+        //ex
+        function Car(color, name, number){ //차에 관련된 생성자함수 작성
+            this.color = color; //색 프로퍼티
+            this.name = name; //이름 프로퍼티
+            this.number = number; //번호 프로퍼티
+        };
+        var myFatherCar = new Car("흰색","로체","15어7776"); //이 객체는 Car 라는 프로토타입을 가짐.
+        function introCar(){
+            document.getElementById("car").innerHTML = "우리 아빠 차는 " + myFatherCar.name+ "이고,<br />색은 "+ myFatherCar.color + "<br />그리고 번호는 "+ myFatherCar.number + " 입니다.";
+        }
+
+        //객체에 프로퍼티 및 메소드 추가
+        /*prototype 프로퍼티를 사용하여 객체의 프로토타입에 접근할 수 있다.*/
+        Car.prototype.size = "중형"; //현재 존재하고있는 Car 프로토타입에 size 프로퍼티 추가
+        Car.prototype.rtsize = function(){
+            return this.size + " 차량"; //현재 존재하고있는 Car 프로토타입에 size반환 메소드 추가
+        }
+        function introSize(){
+            document.getElementById("prtadd").innerHTML = "우리 아빠 차는 "+myFatherCar.rtsize() + " 입니다.";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Object</title>
+    <style>
+        #grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="grid">
+        <div style="border-right: 4px solid gray;">
+            <p style="padding-left: 250px;"><button style="width: 100px; height: 80px;" 
+                onclick=w1();>Way1</button></p>
+            <p id="w1" style="text-align: left; font-weight: 100; margin-left: 200px;"></p>
+        </div>
+        <div style="border-right: 4px solid gray;">
+            <p style="padding-left: 250px;"><button style="width: 100px; height: 80px;"
+                onclick="w2()">Way2</button></p>
+            <p id="w2" style="text-align: left; font-weight: 100; margin-left: 160px;"></p>
+        </div>
+        <div>
+            <p style="padding-left: 250px;"><button style="width: 100px; height: 80px;"
+                onclick="w3()">Way3</button></p>
+            <p id="w3" style="text-align: left; font-weight: 100; margin-left: 50px;"></p>
+        </div>
+    </h1>
+    <script>
+        //Js에서 객체를 생성하는 방법은 다음과 같다.
+        // 1.리터럴 표기(literal notation)를 이용한 방법
+        var Ob1 = {
+            n1 : 1,
+            n2 : 2
+        }
+
+        // 2.생성자 함수(constructor function)를 이용한 방법
+        var Ob2 = new Date();
+        
+        // 3.Object.create() 메소드를 이용한 방법
+        var Ob3 = Object.create(null,{ //null프로토타입을 사용하여 새로운 객체생성
+            x: { value:100, enumerable:true}, //x좌표를 나타내는 열거할 수 있는 프로퍼티
+            y: { value:200, enumerable:true}
+        });
+        ob3.x;
+        obj.y;
+
+        //위와같은 방법으로 생성되어 메모리에 대입된 객체를 인스턴스(instance)라고한다.
+        function w1(){
+            document.getElementById("w1").innerHTML = "var Ob1 = {<br />n1 : 1, <br />n2 : 2<br />};"
+        }
+        function w2(){
+            document.getElementById("w2").innerHTML = "var Ob2 = new Date();"
+        }
+        function w3(){
+            document.getElementById("w3").innerHTML = "var Ob3 = Object.create(null,{<br />x: { value:100, enumerable:true},<br />y: { value:200, enumerable:true}<br />});"
+        }
+    </script>
+</body>
+</html>
